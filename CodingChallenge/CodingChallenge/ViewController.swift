@@ -10,16 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var sectors = [SectorModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let serviceManager = ServicesManager()
+        
+        serviceManager.getAllSectors({array,error-> Void in
+            if let e = error{
+                print("digwey\(e.description)")
+            }else{
+                for s in array!{
+                    self.sectors.append(SectorModel(dic: s as! NSDictionary))
+                }
+                print(self.sectors);
+            }
+        })
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
