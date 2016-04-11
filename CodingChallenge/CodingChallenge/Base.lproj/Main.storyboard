@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CodingChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,58 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="309" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DL4-Eg-Uvz">
+                                <rect key="frame" x="20" y="15" width="560" height="585"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.073933201409999996" green="8.8911920789999996e-05" blue="0.23577217759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SectorCustomTableViewCell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SectorCustomTableViewCell" rowHeight="309" id="bvS-xf-vAf" customClass="SectorCustomTableViewCell" customModule="CodingChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="309"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bvS-xf-vAf" id="SLx-Ty-yN0">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="308"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAN-yw-5CJ" customClass="CustomView" customModule="CodingChallenge" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="98"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4te-X9-iSZ">
+                                                    <rect key="frame" x="0.0" y="99" width="560" height="209"/>
+                                                    <color key="backgroundColor" red="0.23365683193586528" green="0.24844445746148791" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="sectorHeaderView" destination="fAN-yw-5CJ" id="MmP-Rm-33Q"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="2e4-g7-X5i"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="9Xc-OB-PAZ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DL4-Eg-Uvz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="15" id="6ck-Kk-FPh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DL4-Eg-Uvz" secondAttribute="trailing" id="Ktw-pK-J3o"/>
+                            <constraint firstItem="DL4-Eg-Uvz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cgr-Dd-luX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DL4-Eg-Uvz" secondAttribute="bottom" id="d5Y-CZ-jCU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="sectorTableView" destination="DL4-Eg-Uvz" id="hyr-Sp-NTN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="470" y="212"/>
         </scene>
     </scenes>
 </document>

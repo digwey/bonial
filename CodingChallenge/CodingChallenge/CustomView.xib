@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomView" customModule="CodingChallenge" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="sgZ-v9-mHW" id="yJl-2U-d7M"/>
+                <outlet property="noItemsInSection" destination="bAc-Qx-DGL" id="gmf-0p-eRq"/>
+                <outlet property="sectorName" destination="GQb-ve-StE" id="ep8-W3-tMi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="120"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sector Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQb-ve-StE">
+                    <rect key="frame" x="8" y="8" width="120" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sgZ-v9-mHW">
+                    <rect key="frame" x="8" y="37" width="60" height="43"/>
+                    <color key="backgroundColor" red="0.90923690800000001" green="0.81068706509999999" blue="0.81462281940000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="sbo-TO-Sad"/>
+                        <constraint firstAttribute="width" constant="60" id="tEn-gq-NIp"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Numbers of items in section" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAc-Qx-DGL">
+                    <rect key="frame" x="76" y="48" width="224" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.74259269240000003" green="0.034396483399999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="sgZ-v9-mHW" secondAttribute="trailing" constant="232" id="1SS-o0-HQu"/>
+                <constraint firstItem="sgZ-v9-mHW" firstAttribute="leading" secondItem="GQb-ve-StE" secondAttribute="trailing" constant="-120" id="3EU-gy-NVO"/>
+                <constraint firstItem="GQb-ve-StE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="5za-oN-r0h"/>
+                <constraint firstItem="sgZ-v9-mHW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="37" id="ASD-m2-h0C"/>
+                <constraint firstItem="GQb-ve-StE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="bHz-eW-lBm"/>
+                <constraint firstAttribute="bottom" secondItem="sgZ-v9-mHW" secondAttribute="bottom" constant="40" id="wSF-Op-BuJ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="188" y="105"/>
+        </view>
+    </objects>
+</document>
