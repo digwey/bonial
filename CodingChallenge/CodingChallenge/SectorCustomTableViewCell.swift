@@ -10,10 +10,11 @@ import UIKit
 
 
 
-class SectorCustomTableViewCell: UITableViewCell {
+class SectorCustomTableViewCell: UITableViewCell{
 
   
     @IBOutlet weak var sectorHeaderView: CustomView!
+    @IBOutlet weak var brochureCollectionView: UICollectionView!
     
     
     override func awakeFromNib() {
@@ -29,9 +30,28 @@ class SectorCustomTableViewCell: UITableViewCell {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         
-        
-        
     }
-
-
 }
+
+extension SectorCustomTableViewCell {
+    
+    func setCollectionViewDataSourceDelegate<D: protocol<UICollectionViewDataSource, UICollectionViewDelegate>>(dataSourceDelegate: D, forRow row: Int) {
+        
+        brochureCollectionView.delegate = dataSourceDelegate
+        brochureCollectionView.dataSource = dataSourceDelegate
+        brochureCollectionView.tag = row
+        brochureCollectionView.setContentOffset(brochureCollectionView.contentOffset, animated:false) // Stops collection view if it was scrolling.
+        brochureCollectionView.reloadData()
+    }
+    
+    var collectionViewOffset: CGFloat {
+        set {
+            brochureCollectionView.contentOffset.x = newValue
+        }
+        
+        get {
+            return brochureCollectionView.contentOffset.x
+        }
+    }
+}
+

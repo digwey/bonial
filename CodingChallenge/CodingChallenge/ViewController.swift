@@ -8,11 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
     var sectors = [SectorModel]()
-    
+    var storedOffsets = [Int: CGFloat]()
+
+ 
     @IBOutlet weak var sectorTableView: UITableView!
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,18 +26,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         serviceManager.getAllSectors({array,error-> Void in
             if let e = error{
-                print("digwey\(e.description)")
+                print("\(e.description)")
             }else{
                 for s in array!{
                     self.sectors.append(SectorModel(dic: s as! NSDictionary))
                 }
-                //print(self.sectors);
-                
+                //the collection view sections should be alphabetically ordered by “sector->name”
+                //Using simplicity to calling and implementing funcitons (Power of SWIFT) :)
+                self.sectors.sort({$0.name < $1.name})
                 dispatch_async(dispatch_get_main_queue(),{
                     self.sectorTableView.reloadData()
                 })
             }
         })
+        
+        
     }
     
     
@@ -40,25 +49,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       // var cell = tableView.dequeueReusableCellWithIdentifier("CELL")
         let cell = tableView.dequeueReusableCellWithIdentifier("SectorCustomTableViewCell", forIndexPath: indexPath) as! SectorCustomTableViewCell
 
-        
-
         let sector = self.sectors[indexPath.row]
-        
 
         cell.sectorHeaderView.sectorName.text = sector.name
         cell.sectorHeaderView.noItemsInSection.text = "\(sector.brouchors.count)"
-        
-        
         cell.sectorHeaderView.imageView.downloadedFrom(link: sector.url, contentMode: .Center)
+        
         
         
         return cell
     }
     
-    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        guard let tableViewCell = cell as? SectorCustomTableViewCell else { return }
+        
+        
+        
+        tableViewCell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
+        tableViewCell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
+    }
+    func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        guard let tableViewCell = cell as? SectorCustomTableViewCell else { return }
+        
+        storedOffsets[indexPath.row] = tableViewCell.collectionViewOffset
+    }
 }
 
 extension UIImageView {
@@ -73,11 +91,36 @@ extension UIImageView {
                 let mimeType = response?.MIMEType where mimeType.hasPrefix("image"),
                 let data = data where error == nil,
                 let image = UIImage(data: data)
-                else { return }
+                
+                else {
+                    self.image = UIImage(named: "UnavailableImage")
+                    return }
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
+
                 self.image = image
             }
         }).resume()
     }
+}
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return sectors[collectionView.tag].brouchors.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+      
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("BrochureCustomCollectionViewCell", forIndexPath: indexPath) as! BrochureCustomCollectionViewCell
+        
+        let brouchorModel : BrochureModel = sectors[collectionView.tag].brouchors[indexPath.row]
+        cell.brochureName?.text = brouchorModel.title
+        cell.retailName?.text = brouchorModel.retailerName
+        
+        
+        cell.brochureImage.downloadedFrom(link: brouchorModel.coverUrl, contentMode: .Center)
+        
+        return cell
+    }
+    
 }
 
