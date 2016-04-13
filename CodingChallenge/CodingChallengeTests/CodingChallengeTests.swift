@@ -33,4 +33,21 @@ class CodingChallengeTests: XCTestCase {
         }
     }
     
+    func testInitSectorModel(){
+        //Generating Nil Sector model
+        let sectorModel = SectorModel(id: -1, name: "TestedModel", url: "MYURL")
+        
+        //It should be success because Sector Model with negative ID generate nil Model
+        XCTAssertNil(sectorModel)
+        
+        //Successfully generated Sector model
+        let sectorModelSuccessed = SectorModel(id: 1, name: "TestedModel 1", url: "MYURL")
+        
+        //Test to insure mapping between model consturctor and model properties
+        XCTAssertEqual(sectorModelSuccessed!.id,1)
+        XCTAssertEqual(sectorModelSuccessed!.name,"TestedModel 1")
+        XCTAssertEqual(sectorModelSuccessed!.url,"MYURL")
+        
+    }
+    
 }
