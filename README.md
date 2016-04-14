@@ -4,7 +4,16 @@ Bonial iOS development task
 ![License](https://img.shields.io/badge/Bonial-First%20Task-green.svg)
 
 
-[TOC]
+**Table of Contents**  
+- [Bonial iOS development task](#)
+- [Required Task](#)
+- [Features](#)
+- [How to build](#)
+- [Notices](#)
+- [Screenshots](#)
+- [Unit testing](#)
+- [Requirements](#)
+- [UML](#)
 
 # Required Task 
 1) FETCH LIST WITH BROCHURES
