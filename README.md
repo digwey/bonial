@@ -144,3 +144,6 @@ iOS Application->Webserver: Send HTTP Get request
 Note right of iOS Application: Parse and display Sectors and Brouchors
 Webserver->iOS Application: Response JSON response 
 ```
+
+![BonialSeqDiagram]
+(https://raw.githubusercontent.com/digwey/bonial/master/CodingChallenge/screenshots/BonialSeqDiagram.png)
