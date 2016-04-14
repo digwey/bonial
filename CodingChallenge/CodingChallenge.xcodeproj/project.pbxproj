@@ -136,15 +136,12 @@
 			isa = PBXGroup;
 			children = (
 				612ED3111CB8FD9300534451 /* AppDelegate.swift */,
+				61572E411CBF6C5A00C3C631 /* CustomComponent */,
+				61572E431CBF6C8400C3C631 /* ViewControllers */,
 				612300771CB9837E004FCB1D /* DataModels */,
-				612ED3131CB8FD9300534451 /* ViewController.swift */,
-				612300781CB98FE5004FCB1D /* ConnectivityManager.swift */,
-				6123007B1CB9A5EE004FCB1D /* ServicesManager.swift */,
-				612300871CBA8B66004FCB1D /* SectorCustomTableViewCell.swift */,
+				61572E3F1CBF6C3200C3C631 /* ConnectivityLayer */,
+				61572E401CBF6C4800C3C631 /* ServiceLayer */,
 				612ED3151CB8FD9300534451 /* Main.storyboard */,
-				6157F38D1CBBAFA60017A24B /* CustomView.swift */,
-				6157F38E1CBBAFA60017A24B /* CustomView.xib */,
-				610595001CBCD10C00FBD3C0 /* BrochureCustomCollectionViewCell.swift */,
 				612ED31B1CB8FD9300534451 /* Assets.xcassets */,
 				61572E3C1CBE558C00C3C631 /* UnavailableImage.png */,
 				612ED31D1CB8FD9300534451 /* LaunchScreen.storyboard */,
@@ -170,6 +167,49 @@
 				612ED3361CB8FD9400534451 /* Info.plist */,
 			);
 			path = CodingChallengeUITests;
+			sourceTree = "<group>";
+		};
+		61572E3F1CBF6C3200C3C631 /* ConnectivityLayer */ = {
+			isa = PBXGroup;
+			children = (
+				612300781CB98FE5004FCB1D /* ConnectivityManager.swift */,
+			);
+			name = ConnectivityLayer;
+			sourceTree = "<group>";
+		};
+		61572E401CBF6C4800C3C631 /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				6123007B1CB9A5EE004FCB1D /* ServicesManager.swift */,
+			);
+			name = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		61572E411CBF6C5A00C3C631 /* CustomComponent */ = {
+			isa = PBXGroup;
+			children = (
+				61572E421CBF6C7200C3C631 /* CustomCell */,
+				6157F38D1CBBAFA60017A24B /* CustomView.swift */,
+				6157F38E1CBBAFA60017A24B /* CustomView.xib */,
+			);
+			name = CustomComponent;
+			sourceTree = "<group>";
+		};
+		61572E421CBF6C7200C3C631 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				612300871CBA8B66004FCB1D /* SectorCustomTableViewCell.swift */,
+				610595001CBCD10C00FBD3C0 /* BrochureCustomCollectionViewCell.swift */,
+			);
+			name = CustomCell;
+			sourceTree = "<group>";
+		};
+		61572E431CBF6C8400C3C631 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				612ED3131CB8FD9300534451 /* ViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

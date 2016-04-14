@@ -33,7 +33,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
                 //the collection view sections should be alphabetically ordered by “sector->name”
                 //Using simplicity to calling and implementing funcitons (Power of SWIFT) :)
-                self.sectors.sort({$0.name < $1.name})
+                self.sectors = self.sectors.sort({$0.name < $1.name})
                 dispatch_async(dispatch_get_main_queue(),{
                     self.sectorTableView.reloadData()
                 })
